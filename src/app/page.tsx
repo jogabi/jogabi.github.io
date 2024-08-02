@@ -1,11 +1,13 @@
-import { getMarkdownContent } from '@/lib/markdown';
+import { getAllMarkdownContent } from '@/lib/markdown';
 
 export default async function Home() {
-  const contentHtml = await getMarkdownContent('example');
+  const allContentHtml = await getAllMarkdownContent();
 
   return (
     <main>
-      <div dangerouslySetInnerHTML={{ __html: contentHtml }} />
+      {allContentHtml.map((content, index) => (
+        <div key={index} dangerouslySetInnerHTML={{ __html: content }} />
+      ))}
     </main>
   );
 }

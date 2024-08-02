@@ -5,12 +5,15 @@ import html from 'remark-html';
 
 const contentDirectory = path.join( process.cwd(), 'src/content' );
 
-export async function getMarkdownContent( fileName: string ) {
-  const fullPath = path.join( contentDirectory, `${fileName}.md` );
-  const fileContents = fs.readFileSync( fullPath, 'utf8' );
-
-  const processedContent = await remark().use( html ).process( fileContents );
-  const contentHtml = processedContent.toString();
-
-  return contentHtml;
+export async function getAllMarkdownContent() {
+  const fileNames = fs.readdirSync( contentDirectory );
+  const allContentHtml = await Promise.all(
+    fileNames.map( async ( fileName ) => {
+      const fullPath = path.join( contentDirectory, fileName );
+      const fileContents = fs.readFileSync( fullPath, 'utf8' ); // 인코딩을 'utf8'로 설정
+      const processedContent = await remark().use( html ).process( fileContents );
+      return processedContent.toString();
+    } )
+  );
+  return allContentHtml;
 }
