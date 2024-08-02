@@ -42,6 +42,13 @@ export async function getAllMarkdownContent() {
     sortedMarkdownFiles.map( async ( filePath ) => {
       const fileContents = fs.readFileSync( filePath, 'utf8' );
       const processedContent = await remark().use( html ).process( fileContents );
+      /*
+      제목만 추출하기
+            const match = fileContents.match( /^# (.+)$/m );
+            console.log( 'sfsdfssfs', match ? match[1] : 'Untitled' )
+       */
+
+
       return processedContent.toString();
     } )
   );
