@@ -5,18 +5,46 @@ import html from 'remark-html';
 
 const contentDirectory = path.join( process.cwd(), 'src/content' );
 
-export async function getAllMarkdownContent() {
-  const fileNames = fs.readdirSync( contentDirectory );
-  const markdownFileNames = fileNames.filter( fileName => path.extname( fileName ) === '.md' );
 
+function getMarkdownFiles( dir: string ): string[] {
+  let results: string[] = [];
+  const list = fs.readdirSync( dir );
+
+  list.forEach( ( file ) => {
+    const filePath = path.join( dir, file );
+    const stat = fs.statSync( filePath );
+
+    if ( stat && stat.isDirectory() ) {
+      results = results.concat( getMarkdownFiles( filePath ) );
+    } else if ( path.extname( file ) === '.md' ) {
+      results.push( filePath );
+    }
+  } );
+
+  return results;
+}
+
+
+
+function sortMarkdownFiles( files: string[] ): string[] {
+  return files.sort( ( a, b ) => {
+    const aName = path.basename( a, '.md' );
+    const bName = path.basename( b, '.md' );
+    return bName.localeCompare( aName );
+  } );
+}
+
+export async function getAllMarkdownContent() {
+  const markdownFiles = getMarkdownFiles( contentDirectory );
+  const sortedMarkdownFiles = sortMarkdownFiles( markdownFiles );
 
   const allContentHtml = await Promise.all(
-    markdownFileNames.map( async ( fileName ) => {
-      const fullPath = path.join( contentDirectory, fileName );
-      const fileContents = fs.readFileSync( fullPath, 'utf8' ); // 인코딩을 'utf8'로 설정
+    sortedMarkdownFiles.map( async ( filePath ) => {
+      const fileContents = fs.readFileSync( filePath, 'utf8' );
       const processedContent = await remark().use( html ).process( fileContents );
       return processedContent.toString();
     } )
   );
+
   return allContentHtml;
 }
