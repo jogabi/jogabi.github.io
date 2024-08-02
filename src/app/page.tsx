@@ -1,9 +1,16 @@
-import styles from "./page.module.css";
+import fs from 'fs';
+import path from 'path';
+import { remark } from 'remark';
+import html from 'remark-html';
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      jㅅㄷㄴㅅ
-    </main>
-  );
+const contentDirectory = path.join(process.cwd(), 'src/content');
+
+export async function getMarkdownContent(fileName: string) {
+  const fullPath = path.join(contentDirectory, `${fileName}.md`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+
+  const processedContent = await remark().use(html).process(fileContents);
+  const contentHtml = processedContent.toString();
+
+  return contentHtml;
 }
