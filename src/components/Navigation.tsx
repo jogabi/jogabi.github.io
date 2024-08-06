@@ -8,6 +8,7 @@ const Navigation = () => {
       </ul>
     </div>
   );
+  ``;
 };
 
 export default Navigation;

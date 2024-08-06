@@ -6,7 +6,29 @@
 }
 
 body {
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: #000;
+  color: #fff;
   font-family: 'Akkurat', sans-serif;
 }
+
+.header_top_wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-left: 20px;padding-right: 20px;padding-top: 20px;
+padding-bottom: 30px;
+}
+
+.navigation_wrap {
+  order: 1;
+}
+
+.logo {
+  order: 2;
+}
+
+.information {
+  order: 3;
+}
+
