@@ -1,46 +1,12 @@
+@font-face {
+  font-family: 'Akkurat';
+  src: url('/fonts/Akkurat.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   background-color: #121212;
   color: #e0e0e0;
-  font-family: 'Inter', sans-serif;
-}
-
-#wrap {
-  display: flex;
-}
-
-#container {
-  flex: 1;
-  padding: 20px;
-}
-
-a {
-  color: #bb86fc;
-}
-
-a:hover {
-  color: #3700b3;
-}
-
-/* style.scss 파일에 추가 */
-.left-menu {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-  width: 200px;
-  padding: 20px;
-  border-right: 1px solid #333;
-}
-
-.left-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
-.left-menu li {
-  padding: 10px 0;
-  border-bottom: 1px solid #333;
-}
-
-.left-menu li:hover {
-  background-color: #333;
-  cursor: pointer;
+  font-family: 'Akkurat', sans-serif;
 }

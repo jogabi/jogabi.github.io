@@ -1,5 +1,5 @@
 
-const LeftMenu = () => {
+const Navigation = () => {
     return (
         <div className="left-menu">
             <ul>
@@ -11,4 +11,4 @@ const LeftMenu = () => {
     );
 };
 
-export default LeftMenu;
+export default Navigation;
