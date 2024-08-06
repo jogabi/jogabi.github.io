@@ -1,4 +1,3 @@
-// components/LeftMenu.js
 
 const LeftMenu = () => {
     return (

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import LeftMenu from "@/components/LeftMenu";
+import Navigation from "@/components/Navigation";
 import "@/styles/style.scss";
 import "@/styles/reset.css";
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body >
         <div id="wrap">
-        <LeftMenu />
+        <Navigation />
         <div id="container">
         {children}
           </div>
