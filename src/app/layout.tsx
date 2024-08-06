@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import Navigation from "@/components/Navigation";
+import Header from "@/components/Header";
 import "@/styles/style.scss";
 import "@/styles/reset.css";
-
 
 export const metadata: Metadata = {
   title: "jogabi blog",
@@ -16,14 +15,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body >
+      <body>
         <div id="wrap">
-        <Navigation />
-        <div id="container">
-        {children}
-          </div>
+          <Header />
+          <div id="container">{children}</div>
         </div>
-
       </body>
     </html>
   );
