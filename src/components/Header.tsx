@@ -6,7 +6,6 @@ const Header = () => {
       <div className="header_top_wrap">
         <div></div>
         <div className="logo">GABI JO</div>
-
         <span className="information">INFORMATION</span>
       </div>
       <Navigation />
