@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Akkurat';
-  src: url('/fonts/Akkurat.ttf') format('truetype');
+  font-family: "Akkurat";
+  src: url("/fonts/Akkurat.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -8,16 +8,17 @@
 body {
   background-color: #000;
   color: #fff;
-  font-family: 'Akkurat', sans-serif;
+  font-family: "Akkurat", sans-serif;
 }
 
 .header_top_wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding-left: 20px;padding-right: 20px;padding-top: 20px;
-padding-bottom: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 30px;
 }
 
 .navigation_wrap {
@@ -31,4 +32,3 @@ padding-bottom: 30px;
 .information {
   order: 3;
 }
-
