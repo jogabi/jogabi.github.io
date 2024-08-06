@@ -1,14 +1,13 @@
-
 const Navigation = () => {
-    return (
-        <div className="left-menu">
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </div>
-    );
+  return (
+    <div className="left-menu">
+      <ul>
+        <li>All LIST</li>
+        <li>REACT</li>
+        <li>MY SQL</li>
+      </ul>
+    </div>
+  );
 };
 
 export default Navigation;
