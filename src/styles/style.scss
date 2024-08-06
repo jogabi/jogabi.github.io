@@ -4,6 +4,12 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: "NotoSans";
+  src: url("/fonts/Akkurat.ttf") format("truetype");
+  font-weight: 500;
+}
+
 
 body {
   background-color: #000;
