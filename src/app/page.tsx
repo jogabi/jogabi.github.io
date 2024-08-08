@@ -5,7 +5,7 @@ export default async function Home() {
   const allContentHtml = await getAllMarkdownContent();
 
   return (
-    <ul>
+    <ul className="main_content">
       {allContentHtml.map((content, index) => {
         const dom = new JSDOM(content);
         const doc = dom.window.document;
@@ -20,8 +20,12 @@ export default async function Home() {
 
         let modifiedContent = "";
         if (h1) modifiedContent += h1.outerHTML;
-        if (images[0]) modifiedContent += images[0].outerHTML;
-
+        if (images[0]) {
+          const wrapper = doc.createElement("div");
+          wrapper.className = "image_wrapper";
+          wrapper.appendChild(images[0].cloneNode(true));
+          modifiedContent += wrapper.outerHTML;
+        }
         return (
           <li
             key={index}
