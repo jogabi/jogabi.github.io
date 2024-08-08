@@ -5,10 +5,11 @@ export default async function Home() {
   const allContentHtml = await getAllMarkdownContent();
 
   return (
-    <main>
+    <ul>
       {allContentHtml.map((content, index) => {
         const dom = new JSDOM(content);
         const doc = dom.window.document;
+        const h1 = doc.querySelector("h1");
         const images = doc.querySelectorAll("img");
 
         if (images.length > 1) {
@@ -16,15 +17,18 @@ export default async function Home() {
             images[i].remove();
           }
         }
-        const modifiedContent = doc.body.innerHTML;
+
+        let modifiedContent = "";
+        if (h1) modifiedContent += h1.outerHTML;
+        if (images[0]) modifiedContent += images[0].outerHTML;
 
         return (
-          <div
+          <li
             key={index}
             dangerouslySetInnerHTML={{ __html: modifiedContent }}
           />
         );
       })}
-    </main>
+    </ul>
   );
 }
