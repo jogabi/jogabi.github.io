@@ -31,14 +31,12 @@ body {
     font-family: "Lora";
     font-size: 45px;
     text-align: center;
-
   }
 
   .information {
     order: 3;
     font-size: 12px;
     justify-self: end;
-
   }
 }
 
@@ -48,13 +46,17 @@ body {
   position: relative;
   padding-left: 10px;
   top: -80px;
+  li{
+    margin-bottom: 3px;
+  }
   button {
     opacity: 1;
     width: 100%;
     text-align: left;
     transition: opacity 0.5s;
     font-size: 13px;
-    padding-left: 10px;padding-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
     &:hover {
       opacity: 0.5;
     }
