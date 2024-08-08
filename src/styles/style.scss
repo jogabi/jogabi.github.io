@@ -17,26 +17,28 @@ body {
 }
 @font-face {
   font-family: "Lora";
-  src: url("/fonts/Lora-Medium.ttf") format("truetype");
+  src: url("/fonts/Lora-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 .header_top_wrap {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 20px;
-  padding-bottom: 120px;
+  padding: 20px 20px 120px;
   .logo {
     order: 2;
     font-family: "Lora";
-    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+
   }
 
   .information {
     order: 3;
+    font-size: 12px;
+    justify-self: end;
+
   }
 }
 
