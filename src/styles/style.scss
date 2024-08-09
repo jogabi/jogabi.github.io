@@ -62,6 +62,23 @@ body {
     }
   }
 }
-.main_content{
 
+.main_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  padding: 0;
+}
+
+.main_content li {
+  flex: 0 0 calc(25% - 10px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.main_content li img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
