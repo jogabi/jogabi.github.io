@@ -82,6 +82,16 @@ body {
   height: auto;
   object-fit: cover;
 }
+.content_title {
+  margin-bottom: 8px;
+  display: -webkit-box;
+  -webkit-line-clamp:1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
 
 
 @media (max-width: 650px) {
