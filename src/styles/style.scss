@@ -78,9 +78,11 @@ body {
 }
 
 .main_content li img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
   object-fit: cover;
+  max-height: 250px;
+
 }
 .content_title {
   display: -webkit-box;
@@ -104,10 +106,3 @@ body {
     flex: 0 0 50%;
   }
 }
-
-@media (max-width: 450px) {
-  .main_content li {
-    flex: 0 0 100%;
-  }
-}
-
