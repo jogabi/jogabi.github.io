@@ -1,5 +1,7 @@
 import fs from "fs";
 import path from "path";
+import { remark } from "remark";
+import html from "remark-html";
 
 export function generateStaticParams() {
   const contentDirectory = path.join(process.cwd(), "src/content");
@@ -27,8 +29,23 @@ function getAllMarkdownFiles(dir: string): string[] {
   return results;
 }
 
-export default function Page({ params }: { params: { id: string } }) {
-  // const { id } = params;
+async function getPostContent(id: string) {
+  const contentDirectory = path.join(process.cwd(), "src/content");
+  const files = getAllMarkdownFiles(contentDirectory);
+  const filePath = files.find((file) => path.basename(file, ".md") === id);
 
-  return <div>test</div>;
+  if (!filePath) {
+    throw new Error(`File not found for id: ${id}`);
+  }
+
+  const fileContents = fs.readFileSync(filePath, "utf8");
+  const processedContent = await remark().use(html).process(fileContents);
+  return processedContent.toString();
+}
+
+export default async function Page({ params }: { params: { id: string } }) {
+  const { id } = params;
+  const content = await getPostContent(id);
+
+  return <div dangerouslySetInnerHTML={{ __html: content }} />;
 }
