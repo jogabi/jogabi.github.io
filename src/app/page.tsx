@@ -1,8 +1,10 @@
-import { getAllMarkdownContent } from "@/lib/markdown";
+import { getAllMarkdownContent, getAllMarkdownFiles } from "@/lib/markdown";
 import { JSDOM } from "jsdom";
+import Link from "next/link";
 
 export default async function Home() {
   const allContentHtml = await getAllMarkdownContent();
+  const allFiles = await getAllMarkdownFiles();
 
   return (
     <ul className="main_content">
@@ -31,11 +33,15 @@ export default async function Home() {
           wrapper.appendChild(images[0].cloneNode(true));
           modifiedContent += wrapper.outerHTML;
         }
+        const fileName =
+          allFiles[index].match(/\d{4}-\d{2}-\d{2}-\d+/)?.[0] || "";
+
         return (
-          <li
-            key={index}
-            dangerouslySetInnerHTML={{ __html: modifiedContent }}
-          />
+          <li key={index}>
+            <Link href={`/posts/${fileName}`}>
+              <div dangerouslySetInnerHTML={{ __html: modifiedContent }} />
+            </Link>
+          </li>
         );
       })}
     </ul>

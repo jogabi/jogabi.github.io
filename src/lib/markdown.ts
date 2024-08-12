@@ -24,6 +24,10 @@ function getMarkdownFiles( dir: string ): string[] {
   return results;
 }
 
+export function getAllMarkdownFiles(): string[]{
+  const markdownFiles = getMarkdownFiles( contentDirectory );
+  return sortMarkdownFiles(markdownFiles)
+}
 
 
 function sortMarkdownFiles( files: string[] ): string[] {
