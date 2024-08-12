@@ -1,6 +1,7 @@
 import { getAllMarkdownContent, getAllMarkdownFiles } from "@/lib/markdown";
 import { JSDOM } from "jsdom";
 import Link from "next/link";
+import "prismjs/themes/prism.css";
 
 export default async function Home() {
   const allContentHtml = await getAllMarkdownContent();

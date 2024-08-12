@@ -108,6 +108,14 @@ body {
   font-size: 50px;
   margin-bottom: 30px;
 }
+.content_wrap img{
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-width: 1024px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
 
 
 @media (max-width: 850px) {
