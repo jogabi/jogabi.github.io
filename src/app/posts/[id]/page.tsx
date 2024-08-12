@@ -47,5 +47,10 @@ export default async function Page({ params }: { params: { id: string } }) {
   const { id } = params;
   const content = await getPostContent(id);
 
-  return <div dangerouslySetInnerHTML={{ __html: content }} />;
+  return (
+    <div
+      dangerouslySetInnerHTML={{ __html: content }}
+      className={"content_wrap"}
+    />
+  );
 }
