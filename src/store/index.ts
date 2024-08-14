@@ -1,8 +1,19 @@
 import { create } from 'zustand'
+import { devtools, persist } from 'zustand/middleware'
 
-// const useStore = create((set) => ({
-//   bears: 0,
-//   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-//   removeAllBears: () => set({ bears: 0 }),
-//   updateBears: (newBears) => set({ bears: newBears }),
-// } ) )
+interface NavigationState {
+  category: string;
+  setCategory: (category: string) => void;
+}
+
+export const useNavigationStore = create<NavigationState>()(
+  devtools(
+    persist(
+      (set) => ({
+        category: 'All',
+        setCategory: (category) => set({ category }),
+      }),
+      { name: 'navigation-storage' }
+    )
+  )
+);
