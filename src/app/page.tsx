@@ -19,7 +19,6 @@ export default async function Home() {
             images[i].remove();
           }
         }
-
         let modifiedContent = "";
         if (h1) {
           const p = doc.createElement("p");
@@ -27,6 +26,7 @@ export default async function Home() {
           p.className = "content_title";
           modifiedContent += p.outerHTML;
         }
+
         if (images[0]) {
           const wrapper = doc.createElement("div");
           wrapper.className = "image_wrapper";

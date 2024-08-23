@@ -100,7 +100,6 @@ body {
   max-width: 100%;
   height: auto;
   object-fit: cover;
-  max-height: 250px;
 }
 .content_title {
   display: -webkit-box;
@@ -134,11 +133,20 @@ body {
   margin-bottom: 30px;
   margin-top: 30px;
   font-weight: 500;
-}
-.content_wrap h4 {
+
   font-size: 19px;
   color: #7cacf8;
   font-weight: 500;
+  margin-bottom: 12px;
+}
+.content_wrap h4 {
+  margin-bottom: 10px;
+}
+.content_wrap h6{
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #cd7aa4;
+
 }
 .content_wrap img {
   display: block;
@@ -152,10 +160,18 @@ body {
   margin-bottom: 20px;
   line-height: 24px;
 }
+.content_wrap ol {
+  line-height: 24px;
+  padding-left: 15px;
+  li{
+    margin-bottom: 12px;
+  }
+}
 .content_wrap ul {
   line-height: 24px;
+  margin-bottom: 12px;
 
-  li {
+ > li {
     margin-left: -10px;
     padding-left: 20px;
 
