@@ -35,8 +35,7 @@ export default async function Home() {
         }
         const fileName =
           allFiles[index].match(/\d{4}-\d{2}-\d{2}-\d+/)?.[0] || "";
-
-        return (
+        http: return (
           <li key={index}>
             <Link href={`/posts/${fileName}`}>
               <div dangerouslySetInnerHTML={{ __html: modifiedContent }} />
