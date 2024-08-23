@@ -12,9 +12,25 @@ body {
 }
 @font-face {
   font-family: "NotoSans";
-  src: url("/fonts/Akkurat.ttf") format("truetype");
+  src: url("/fonts/NotoSansKR-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "NotoSans";
+  src: url("/fonts/NotoSansKR-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "NotoSans";
+  src: url("/fonts/NotoSansKR-Medium.ttf") format("truetype");
   font-weight: 500;
 }
+@font-face {
+  font-family: "NotoSans";
+  src: url("/fonts/NotoSansKR-Bold.ttf") format("truetype");
+  font-weight: 600;
+}
+
 @font-face {
   font-family: "Lora";
   src: url("/fonts/Lora-Regular.ttf") format("truetype");
@@ -46,7 +62,7 @@ body {
   position: relative;
   padding-left: 10px;
   top: -60px;
-  li{
+  li {
     margin-bottom: 3px;
   }
   button {
@@ -74,7 +90,10 @@ body {
   flex: 0 0 25%;
   box-sizing: border-box;
   margin-bottom: 15px;
-
+}
+.main_content li a {
+  color: #e1e1e1;
+  text-decoration: none;
 }
 
 .main_content li img {
@@ -82,40 +101,78 @@ body {
   height: auto;
   object-fit: cover;
   max-height: 250px;
-
 }
 .content_title {
   display: -webkit-box;
-  -webkit-line-clamp:1;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
   margin: 5px;
-  margin-bottom: 8px;
-
+  margin-bottom: 12px;
 }
-.image_wrapper{
+.image_wrapper {
   margin: 5px;
 }
 
-
-#container{
-  padding:30px  20px;
+#container {
+  padding: 30px 20px;
+}
+.content_wrap {
+  font-family: "NotoSans";
 }
 
-.content_wrap h1{
+.content_wrap h1 {
   font-size: 38px;
   margin-bottom: 30px;
+  font-weight: 600;
 }
-.content_wrap img{
+
+.content_wrap h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  font-weight: 500;
+}
+.content_wrap h4 {
+  font-size: 19px;
+  color: #7cacf8;
+  font-weight: 500;
+}
+.content_wrap img {
   display: block;
   margin: 0 auto;
   max-width: 1024px;
   margin-bottom: 20px;
   margin-top: 20px;
+  width: 100%;
 }
+.content_wrap p {
+  margin-bottom: 20px;
+  line-height: 24px;
+}
+.content_wrap ul {
+  line-height: 24px;
 
+  li {
+    margin-left: -10px;
+    padding-left: 20px;
+
+    &::before {
+      border-radius: 100%;
+      content: "";
+      display: inline-block;
+      background-color: #fff;
+      width: 5px;
+      height: 5px;
+      position: relative;
+      top: -2px;
+      margin-right: 5px;
+      margin-left: -5px;
+    }
+  }
+}
 
 @media (max-width: 850px) {
   .main_content li {

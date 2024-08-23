@@ -35,6 +35,12 @@ const Navigation = () => {
             SPRING BOOT
           </button>
         </li>
+
+        <li>
+          <button type="button" onClick={() => handleCategoryChange("next")}>
+            NEXT
+          </button>
+        </li>
       </ul>
     </div>
   );
